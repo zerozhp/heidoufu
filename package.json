@@ -1,0 +1,26 @@
+{
+  "name": "heidoufu",
+  "version": "1.0.0",
+  "description": "blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zerozhp/heidoufu.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Dapeng",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/zerozhp/heidoufu/issues"
+  },
+  "homepage": "https://github.com/zerozhp/heidoufu#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0"
+  }
+}
