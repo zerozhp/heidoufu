@@ -36,6 +36,13 @@ app.get('/tours/hood-river',function(req, res){
 app.get('/tours/request-group-rate',function(req, res){
 	res.render('tours/request-group-rate');
 });
+//查看浏览器发送的信息
+app.get('/headers',function(req, res){
+	res.type('text/plain');
+	var s = '';
+	for(var name in req.headers) s += name + ':' + req.headers[name] + '\n';
+	res.send(s);
+});
 
 // 404 catch-all handler (middleware)
 app.use(function(req, res, next){
