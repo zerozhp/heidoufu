@@ -100,9 +100,20 @@ app.post('/process', function(req, res){
 	console.log('Email (from visible form field):'+req.body.email);
 	res.redirect(303, '/thank-you');
 });
+app.get('/newsletter2', function(req, res){
+	res.render('newsletter2',{ csrf:'CSRF token goes here'});
+});
+app.post('/process2', function(req, res){
+	if(req.xhr || req.accepts('json,html')==='json'){
+		res.send({success:true});
+	}else{
+		res.redirect(303, '/thank-you');
+	}
+});
 app.get('/thank-you', function(req, res){
 	res.render('thank-you');
 });
+
 //查看浏览器发送的信息
 app.get('/headers',function(req, res){
 	res.type('text/plain');
