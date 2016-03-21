@@ -133,6 +133,17 @@ app.post('/contest/vacation-photo/:year/:month', function(req, res){
 		res.redirect(303, '/thank-you')
 	})
 });
+app.use('/upload',function(req, res, next){
+	var now = Date.now();
+	jqupload.fileHandler({
+		uploadDir:function(){
+			return __dirname + '/public/uploads/' + now;
+		},
+		uploadUrl:function(){
+			return '/uploads/' + now;
+		}
+	})(req, res, next);
+});
 //查看浏览器发送的信息
 app.get('/headers',function(req, res){
 	res.type('text/plain');
