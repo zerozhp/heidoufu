@@ -57,10 +57,24 @@ function getWeatherData(){
         ],
     };
 }
+//middleware to add weather data to context
 app.use(function(req, res, next){
 	if(!res.locals.partials) res.locals.partials = {};
  	res.locals.partials.weatherContext = getWeatherData();
  	next();
+});
+
+//jq传文件
+app.use('/upload', function(req, res, next){
+    var now = Date.now();
+    jqupload.fileHandler({
+        uploadDir: function(){
+            return __dirname + '/public/uploads/' + now;
+        },
+        uploadUrl: function(){
+            return '/uploads/' + now;
+        },
+    })(req, res, next);
 });
 //路由
 app.get('/',function(req, res){
@@ -132,17 +146,6 @@ app.post('/contest/vacation-photo/:year/:month', function(req, res){
 		console.log(files);
 		res.redirect(303, '/thank-you')
 	})
-});
-app.use('/upload',function(req, res, next){
-	var now = Date.now();
-	jqupload.fileHandler({
-		uploadDir:function(){
-			return __dirname + '/public/uploads/' + now;
-		},
-		uploadUrl:function(){
-			return '/uploads/' + now;
-		}
-	})(req, res, next);
 });
 //查看浏览器发送的信息
 app.get('/headers',function(req, res){
