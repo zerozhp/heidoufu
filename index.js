@@ -1,6 +1,7 @@
 var express = require('express');
 var fortune = require('./lib/fortune.js');
 var formidable = require('formidable');
+var jqupload = require('jquery-file-upload-middleware');
 
 var app = express();
 
