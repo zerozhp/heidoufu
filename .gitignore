@@ -87,7 +87,7 @@ node_modules*
 .DS_Store
 
 # we don't want to accidentally check our secret credentials into the repo
-# credentials.js
+credentials.js
 
 # don't commit log files
 log

@@ -21,8 +21,10 @@
   "homepage": "https://github.com/zerozhp/heidoufu#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.13.0",
     "formidable": "^1.0.17"
   },
   "devDependencies": {
