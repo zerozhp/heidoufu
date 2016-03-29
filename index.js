@@ -1,9 +1,9 @@
 var express = require('express');
 var fortune = require('./lib/fortune.js');
 var formidable = require('formidable');
-var credentials = require('./credentials.js');
-
 var app = express();
+var credentials = require('./credentials.js');
+var emailService = require('./lib/email.js')(credentials);
 
 //访问端口
 app.set('port', process.env.PORT || 3000);
@@ -295,6 +295,8 @@ app.get('/cart', function(req, res){
 	var cart = req.session.cart || (req.session.cart = []);
 	res.render('cart', { cart: cart });
 });
+
+
 
 //查看浏览器发送的信息
 app.get('/headers',function(req, res){
